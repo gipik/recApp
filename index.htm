@@ -37,6 +37,9 @@ main {
 <script>
 var inserzioni_arr;
 function edit_ins(idx) {
+
+console.log('EDIT['+idx+']');
+
     function getVal(str) {
 	if ((str == 'undefined')||(typeof(str)=='undefined')) {
 	  return('');
@@ -228,13 +231,8 @@ function print_ins() {
     document.getElementById('main_id').innerHTML='';
     for(var i in inserzioni_arr) {
 	var newdiv=document.createElement('div');
-	//newdiv.onclick='edit_ins('+i+')'
-	//newdiv.onclick='alert("ciao")'
-	newdiv.addEventListener('click',function(){ eval("edit_ins("+i+")") });
 	var ins='<table width=100%><tr><td nowrap><li><b>'+inserzioni_arr[i].title+'</b>';
-	//ins+='<ul>Locali: '+inserzioni_arr[i].locali+'</ul>';
-	//ins+='</td><td align=right nowrap><button onclick="edit_ins('+i+')">VEDI/MODIFICA</button></td></tr></table>';
-	ins+='</td></tr></table>';
+	ins+='</td><td align=right nowrap><button onclick="edit_ins('+i+')">VEDI/MODIFICA</button></td></tr></table>';
 	newdiv.innerHTML=ins;
 	newdiv.className='inserzione';
 	document.getElementById('main_id').appendChild(newdiv);
