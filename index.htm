@@ -245,7 +245,7 @@ function print_ins() {
     var ins='<table width=100%><tr><td nowrap colspan=2 align=left><button onclick="esporta()">ESPORTA INSERZIONI</button></td></tr></table>';
     backup_div.innerHTML=ins;
     document.getElementById('main_id').appendChild(backup_div);
-    document.getElementById('footer_id').innerHTML='<table nowrap width=100% cellpadding=15><tr><td nowrap align=right><button onclick="importa()">.IMPORTA INSERZIONI</button> <button onclick="add_ins()">AGGIUNGI INSERZIONE</button></td></tr></table>';
+    document.getElementById('footer_id').innerHTML='<table nowrap width=100% cellpadding=15><tr><td nowrap align=right><button onclick="importa()">IMPORTA.INSERZIONI</button> <button onclick="add_ins()">AGGIUNGI INSERZIONE</button></td></tr></table>';
     if((inserzioni_arr!=null)&&(inserzioni_arr.length>0)) {
 	hmsg=inserzioni_arr.length + ' inserzion';
 	if(inserzioni_arr.length == 1) {
