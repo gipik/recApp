@@ -180,7 +180,7 @@ function esporta() {
 
         var backup_div=document.createElement('div');
         backup_div.className='inserzione';
-        var ins='<table width=100%><tr><td nowrap colspan=2 align=center><textarea id=export_area cols=80 rows=25></textarea></td></tr><tr><td colspan=2 align=center>Copia il testo sovrastante (CTRL+A poi CTRL+C)<br>per reimportarlo su un altro dispositivo, <br>poi premi il bottone \'FATTO\'</td></tr></table>';
+        var ins='<table width=100%><tr><td nowrap colspan=2 align=center><textarea id=export_area cols=80 rows=25></textarea></td></tr><tr><td colspan=2 align=center>Copia il testo sovrastante (CTRL+C)<br>per reimportarlo su un altro dispositivo, <br>poi premi il bottone \'FATTO\'</td></tr></table>';
         backup_div.innerHTML=ins;
         document.getElementById('main_id').innerHTML='';
         document.getElementById('main_id').appendChild(backup_div);
@@ -188,6 +188,7 @@ function esporta() {
         document.getElementById('footer_id').innerHTML='<table width=100% cellpadding=15><tr><td align=right><button onclick="abort_ins()">FATTO</button></td></tr></table>';
 
 	document.getElementById('export_area').value=btoa(inserzioni_raw);
+	document.getElementById('export_area').select();
 	//document.getElementById('export_area').focus();
 	
 }
