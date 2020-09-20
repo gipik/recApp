@@ -1,13 +1,13 @@
 html, body {
   font-family: arial;
-  font-size: 32px;
+  font-size: 48px;
   margin: 0;
   height: 100%;
   min-height: 100%;
 }
 
 button,table,input,textarea {
-	font-size: 16px;
+	font-size: 24px;
 	border-radius: 10px;
 }
 
