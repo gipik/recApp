@@ -347,7 +347,12 @@ function w_onload() {
 	}
 	if (typeof(Storage) !== "undefined") {
 		inserzioni_raw=localStorage.getItem('inserzioni');
-                inserzioni_arr=JSON.parse(inserzioni_raw);
+		if(inserzioni_raw.trim()=='') {
+		    inserzioni_arr=[];
+		}
+		else {
+		    inserzioni_arr=JSON.parse(inserzioni_raw);
+		}
                 print_ins();
 	} else {
   		alert('Sorry! No Web Storage support..');
