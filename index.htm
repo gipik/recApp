@@ -106,7 +106,7 @@ function edit_ins(idx) {
     ins+='<tr><td colspan=2 nowrap align=right align=center><a href="https://www.reddit.com/r/italy/comments/irubtc/guida_su_cosa_chiedere_e_cosa_guardare_prima_di/" target=_blank>La guida</a></td></tr>';
     ins+='</table><input type=hidden id=edit_id value='+idx+'>';
     document.getElementById('main_id').innerHTML=ins;
-    document.getElementById('footer_id').innerHTML='<table width=100% cellpadding=15><tr><td align=right><button onclick="abort_ins()">ANNULLA</button> <button onclick="save_ins()">SALVA</button></td></tr></table>';
+    document.getElementById('footer_id').innerHTML='<table width=100% cellpadding=15><tr><td align=right><button onclick="abort_ins()">ANNULLA</button> <button onclick="del_ins('+idx+')">ELIMINA</button> <button onclick="save_ins()">SALVA</button></td></tr></table>';
 }
 function del_ins(idx) {
     inserzioni_arr.splice(idx,1);
@@ -228,19 +228,24 @@ function print_ins() {
     document.getElementById('main_id').innerHTML='';
     for(var i in inserzioni_arr) {
 	var newdiv=document.createElement('div');
+	//newdiv.onclick='edit_ins('+i+')'
+	//newdiv.onclick='alert("ciao")'
+	newdiv.addEventListener('click',function(){ eval("edit_ins("+i+")") });
 	var ins='<table width=100%><tr><td nowrap><li><b>'+inserzioni_arr[i].title+'</b>';
 	//ins+='<ul>Locali: '+inserzioni_arr[i].locali+'</ul>';
-	ins+='</td><td align=right nowrap><button onclick="edit_ins('+i+')">VEDI/MODIFICA</button> <button onclick="del_ins('+i+')">ELIMINA</button></td></tr></table>';
+	//ins+='</td><td align=right nowrap><button onclick="edit_ins('+i+')">VEDI/MODIFICA</button></td></tr></table>';
+	ins+='</td></tr></table>';
 	newdiv.innerHTML=ins;
 	newdiv.className='inserzione';
 	document.getElementById('main_id').appendChild(newdiv);
     }
     var backup_div=document.createElement('div');
     backup_div.className='inserzione';
-    var ins='<table width=100%><tr><td nowrap colspan=2 align=right><button onclick="esporta()">esporta inserzioni</button></td></tr></table>';
+    backup_div.style.backgroundColor='darkgray';
+    var ins='<table width=100%><tr><td nowrap colspan=2 align=left><button onclick="esporta()">ESPORTA INSERZIONI</button></td></tr></table>';
     backup_div.innerHTML=ins;
     document.getElementById('main_id').appendChild(backup_div);
-    document.getElementById('footer_id').innerHTML='<table width=100% cellpadding=15><tr><td align=right><button onclick="importa()">importa inserzioni</button> <button onclick="add_ins()">AGGIUNGI INSERZIONE</button></td></tr></table>';
+    document.getElementById('footer_id').innerHTML='<table width=100% cellpadding=15><tr><td align=right><button onclick="importa()">IMPORTA INSERZIONI</button> <button onclick="add_ins()">AGGIUNGI INSERZIONE</button></td></tr></table>';
     if((inserzioni_arr!=null)&&(inserzioni_arr.length>0)) {
 	hmsg=inserzioni_arr.length + ' inserzion';
 	if(inserzioni_arr.length == 1) {
