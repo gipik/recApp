@@ -187,7 +187,7 @@ function esporta() {
         
         document.getElementById('footer_id').innerHTML='<table width=100% cellpadding=15><tr><td align=right><button onclick="abort_ins()">FATTO</button></td></tr></table>';
 
-	document.getElementById('export_area').value=inserzioni_raw;
+	document.getElementById('export_area').value=btoa(inserzioni_raw);
 	//document.getElementById('export_area').focus();
 	
 }
@@ -200,7 +200,7 @@ function importa_backup() {
 	    }
 	}
 
-	inserzioni_raw=document.getElementById('import_area').value;
+	inserzioni_raw=atob(document.getElementById('import_area').value);
 	if(inserzioni_raw.trim()=='') {
 	    inserzioni_arr=[];
 	}
