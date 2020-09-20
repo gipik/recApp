@@ -61,6 +61,14 @@ function edit_ins(idx) {
         ins+='<tr><td nowrap align=right>Box/posto auto:</td><td>&nbsp; <input type=checkbox id=posto_auto '+checked+'></td></tr>';
 	checked=inserzioni_arr[idx].posto_moto?'checked':'';
         ins+='<tr><td nowrap align=right>posto moto:</td><td>&nbsp; <input type=checkbox id=posto_moto '+checked+'></td></tr>';
+        
+	checked=inserzioni_arr[idx].terrazzo?'checked':'';
+        ins+='<tr><td nowrap align=right>Terrazzo:</td><td>&nbsp; <input type=checkbox id=terrazzo '+checked+'></td></tr>';
+
+	checked=inserzioni_arr[idx].balcone?'checked':'';
+        ins+='<tr><td nowrap align=right>Balcone:</td><td>&nbsp; <input type=checkbox id=balcone '+checked+'></td></tr>';
+        
+        
 	checked=inserzioni_arr[idx].cantina?'checked':'';
         ins+='<tr><td nowrap align=right>Cantina:</td><td>&nbsp; <input type=checkbox id=cantina '+checked+'></td></tr>';
 	checked=inserzioni_arr[idx].solaio?'checked':'';
@@ -114,7 +122,6 @@ function abort_ins() {
 	print_ins();
 }
 function save_ins() {
-	console.log('inserzioni_arr['+inserzioni_arr+']');
 	if((inserzioni_arr==null)||(inserzioni_arr=='')) {
 		inserzioni_arr=[];
 	}
@@ -136,6 +143,8 @@ function save_ins() {
 		"ascensore":document.getElementById('ascensore').checked,
 		"posto_auto":document.getElementById('posto_auto').checked,
 		"posto_moto":document.getElementById('posto_moto').checked,
+		"terrazzo":document.getElementById('terrazzo').checked,
+		"balcone":document.getElementById('balcone').checked,
 		"cantina":document.getElementById('cantina').checked,
 		"solaio":document.getElementById('solaio').checked,
 		"ristrutturare":document.getElementById('ristrutturare').checked,
@@ -296,7 +305,9 @@ function add_ins() {
 	ins+='<tr><td nowrap align=right>Ultimo piano:</td><td><input type=checkbox id=ultimo></td></tr>';
 	ins+='<tr><td nowrap align=right>Ascensore:</td><td><input type=checkbox id=ascensore></td></tr>';
 	ins+='<tr><td nowrap align=right>Box/posto auto:</td><td><input type=checkbox id=posto_auto></td></tr>';
-	ins+='<tr><td nowrap align=right>posto moto:</td><td><input type=checkbox id=posto_moto></td></tr>';
+	ins+='<tr><td nowrap align=right>Posto moto:</td><td><input type=checkbox id=posto_moto></td></tr>';
+	ins+='<tr><td nowrap align=right>Terrazzo:</td><td><input type=checkbox id=terrazzo></td></tr>';
+	ins+='<tr><td nowrap align=right>Balcone:</td><td><input type=checkbox id=balcone></td></tr>';
 	ins+='<tr><td nowrap align=right>Cantina:</td><td><input type=checkbox id=cantina></td></tr>';
 	ins+='<tr><td nowrap align=right>Solaio:</td><td><input type=checkbox id=solaio></td></tr>';
 	ins+='<tr><td nowrap align=right>Da ristrutturare:</td><td><input type=checkbox id=ristrutturare></td></tr>';
