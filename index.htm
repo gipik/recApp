@@ -182,7 +182,7 @@ function print_ins() {
         }
 	document.getElementById('footer_id').innerHTML='<table width=100% cellpadding=15><tr><td align=right><button onclick="add_ins()">AGGIUNGI INSERZIONE</button></td></tr></table>';
 	if(inserzioni_arr!=null) {
-		var hmsg=inserzioni_arr.length + ' inserzion';
+		hmsg=inserzioni_arr.length + ' inserzion';
 		if(inserzioni_arr.length == 1) {
 			hmsg+='e';
 		}
@@ -190,8 +190,26 @@ function print_ins() {
 			hmsg+='i';
 		}
 
-        	document.getElementById('ins_cnt').innerHTML=hmsg;
 	}
+	else {
+		hmsg='Nessuna inserzione salvata';
+		
+		var gmsg='<table cellpadding=20 border width=100% height=100%><tr><td>Benvenuto in recApp,<br>la app per annotare cosa chiedere e cosa guardare prima di finalizzare l\'acquisto di una casa.<br><br>Non hai ancora salvato nessuna inserzione: premi \'AGGIUNGI INSERZIONE\' per aggiungerne una.<br><br>L\'app usa il Web Storage del browser per salvare le informazioni, che saranno quindi disponibili fino a che non si cancellano i dati delle app.<br><br><font size=-1><b>Riferimenti:</b><br>\
+<br>\
+Guida su cosa chiedere e cosa guardare prima di comprare casa:\
+<br>\
+<a target=_blank href=https://www.reddit.com/r/italy/comments/irubtc/guida_su_cosa_chiedere_e_cosa_guardare_prima_di/>https://www.reddit.com/r/italy/comments/irubtc/guida_su_cosa_chiedere_e_cosa_guardare_prima_di/</a>\
+<br><br>\
+Recap della Guida su come comprare casa:\
+<br>\
+<a target=_blank href=https://www.reddit.com/r/italy/comments/ith2vt/recap_della_guida_su_come_comprare_casa/>https://www.reddit.com/r/italy/comments/ith2vt/recap_della_guida_su_come_comprare_casa/</a>\
+<br></font>\
+</td><td align=right valign=bottom><img src=giu.gif></td></tr></table>';
+		document.getElementById('main_id').innerHTML=gmsg;
+		
+		
+	}
+	document.getElementById('ins_cnt').innerHTML=hmsg;
 }
 function add_ins() {
         var hmsg='<center><h1>AGGIUNGI INSERZIONE</h1></center>';
