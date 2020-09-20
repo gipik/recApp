@@ -183,7 +183,7 @@ function save_ins() {
     localStorage.setItem('inserzioni', inserzioni_raw);
 }
 function esporta() {
-    var hmsg='<table width=100%><tr><td width=33% align=left><img src=logo_small.png></td><td  width=33% align=center><h1>ESPORTA INSERZIONI</h1></td><td width=33%><a target=_blank href=iol.it><img src=rdt.png></a></td></tr></table><br></center>';
+    var hmsg='<table width=100%><tr><td width=33% align=left><img src=logo_small.png></td><td  width=33% align=center><h1>ESPORTA INSERZIONI</h1></td><td width=33%><a target=_blank href=https://www.reddit.com/r/italy/comments/irubtc/guida_su_cosa_chiedere_e_cosa_guardare_prima_di/><img align=right width=150 height=150 src=rdt.png></a></td></tr></table><br></center>';
     document.getElementById('header_id').innerHTML=hmsg;
     var backup_div=document.createElement('div');
     backup_div.className='inserzione';
@@ -215,7 +215,7 @@ function importa_backup() {
 }
 
 function importa() {
-    var hmsg='<table width=100% nowrap><tr><td width=33% align=left><img src=logo_small.png></td><td width=33% align=center><h1>IMPORTA INSERZIONI</h1></td><td  width=33%></td></tr></table><br></center>';
+    var hmsg='<table width=100% nowrap><tr><td width=33% align=left><img src=logo_small.png></td><td width=33% align=center><h1>IMPORTA INSERZIONI</h1></td><td  width=33%><a target=_blank href=https://www.reddit.com/r/italy/comments/irubtc/guida_su_cosa_chiedere_e_cosa_guardare_prima_di/><img align=right width=150 height=150 src=rdt.png></a></td></tr></table><br></center>';
     document.getElementById('header_id').innerHTML=hmsg;
     var backup_div=document.createElement('div');
     backup_div.className='inserzione';
