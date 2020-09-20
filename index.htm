@@ -81,7 +81,7 @@ function edit_ins(idx) {
         ins+='<tr><td nowrap align=right>Note:</td><td><input type=text id=note value="'+getVal(inserzioni_arr[idx].note)+'"></td></tr>';
 	ins+='<tr><td nowrap align=center colspan=2><img src=controlla.png style="width:250px;height:250px;"></td></tr>';
 	ins+='<tr><td nowrap align=right>Pavimenti e muri</td><td><input type=text id=pem value="'+getVal(inserzioni_arr[idx].pem)+'"></td></tr>';
-	ins+='<tr><td nowrap align=right>Porte, infissi e tapparelle</td><td><input type=text id=pit value="'+getVal(inserzioni_arr[idx].pit)+'"></td></tr>';
+	ins+='<tr><td nowrap align=right>Porte/infissi/tapparelle</td><td><input type=text id=pit value="'+getVal(inserzioni_arr[idx].pit)+'"></td></tr>';
 	ins+='<tr><td nowrap align=right>Soffitti e balconi</td><td><input type=text id=seb value="'+getVal(inserzioni_arr[idx].seb)+'"></td></tr>';
 	ins+='<tr><td nowrap align=right>Pressione dell\'acqua</td><td><input type=text id=pda value="'+getVal(inserzioni_arr[idx].pda)+'"></td></tr>';
 	ins+='<tr><td nowrap align=right>Quadro elettrico</td><td><input type=text id=qe value="'+getVal(inserzioni_arr[idx].qe)+'"></td></tr>';
@@ -89,15 +89,15 @@ function edit_ins(idx) {
 	ins+='<tr><td nowrap align=center colspan=2><img src=domande.png style="width:250px;height:250px;"></td></tr>';
 	ins+='<tr><td nowrap align=right>Perche\' vendete ?</td><td><input type=text id=pv value="'+getVal(inserzioni_arr[idx].pv)+'"></td></tr>';
 	ins+='<tr><td nowrap align=right>Importo bollette</td><td><input type=text id=ib value="'+getVal(inserzioni_arr[idx].ib)+'"></td></tr>';
-	ins+='<tr><td nowrap align=right>C\'e\' un piano di accumulo ?</td><td><input type=text id=pa value="'+getVal(inserzioni_arr[idx].pa)+'"></td></tr>';
-	ins+='<tr><td nowrap align=right>Ci sono ammortamenti in corso ?</td><td><input type=text id=aic value="'+getVal(inserzioni_arr[idx].aic)+'"></td></tr>';
-	ins+='<tr><td nowrap align=right>Ci sono lavori o morosita\' ?</td><td><input type=text id=lom value="'+getVal(inserzioni_arr[idx].lom)+'"></td></tr>';
+	ins+='<tr><td nowrap align=right>Piano di accumulo?</td><td><input type=text id=pa value="'+getVal(inserzioni_arr[idx].pa)+'"></td></tr>';
+	ins+='<tr><td nowrap align=right>Ammortamenti?</td><td><input type=text id=aic value="'+getVal(inserzioni_arr[idx].aic)+'"></td></tr>';
+	ins+='<tr><td nowrap align=right>Lavori o Morosita\' ?</td><td><input type=text id=lom value="'+getVal(inserzioni_arr[idx].lom)+'"></td></tr>';
 	ins+='<tr><td nowrap align=center colspan=2><img src=documenti.png style="width:250px;height:250px;"></td></tr>';
-	ins+='<tr><td nowrap align=right>Lavori di ristrutturazione</td><td><input type=text id=ldr value="'+getVal(inserzioni_arr[idx].ldr)+'"></td></tr>';
-	ins+='<tr><td nowrap align=right>Libretto e interventi caldaia</td><td><input type=text id=lic value="'+getVal(inserzioni_arr[idx].lic)+'"></td></tr>';
+	ins+='<tr><td nowrap align=right>Ristrutturazioni</td><td><input type=text id=ldr value="'+getVal(inserzioni_arr[idx].ldr)+'"></td></tr>';
+	ins+='<tr><td nowrap align=right>Caldaia</td><td><input type=text id=lic value="'+getVal(inserzioni_arr[idx].lic)+'"></td></tr>';
 	ins+='<tr><td nowrap align=right>Conformita\' impianti</td><td><input type=text id=ci value="'+getVal(inserzioni_arr[idx].ci)+'"></td></tr>';
 	ins+='<tr><td nowrap align=right>Classe energetica</td><td><input type=text id=dce value="'+getVal(inserzioni_arr[idx].dce)+'"></td></tr>';
-	ins+='<tr><td nowrap align=right>Planimetria al catasto e comune</td><td><input type=text id=pcc value="'+getVal(inserzioni_arr[idx].pcc)+'"></td></tr>';
+	ins+='<tr><td nowrap align=right>Planimetria</td><td><input type=text id=pcc value="'+getVal(inserzioni_arr[idx].pcc)+'"></td></tr>';
 	ins+='<tr><td nowrap align=right>Altri</td><td><input type=text id=daltri value="'+getVal(inserzioni_arr[idx].daltri)+'"></td></tr>';
 	ins+='<tr><td colspan=2 nowrap align=right align=center><a href="https://www.reddit.com/r/italy/comments/irubtc/guida_su_cosa_chiedere_e_cosa_guardare_prima_di/" target=_blank>La guida</a></td></tr>';
         ins+='</table><input type=hidden id=edit_id value='+idx+'>';
@@ -223,7 +223,7 @@ function importa() {
         document.getElementById('main_id').innerHTML='';
         document.getElementById('main_id').appendChild(backup_div);
         
-        document.getElementById('footer_id').innerHTML='<table width=100% cellpadding=15><tr><td align=right><button onclick="abort_ins()">xANNULLA</button> <button onclick="importa_backup()">IMPORTA</button></td></tr></table>';
+        document.getElementById('footer_id').innerHTML='<table width=100% cellpadding=15><tr><td align=right><button onclick="abort_ins()">ANNULLA</button> <button onclick="importa_backup()">IMPORTA</button></td></tr></table>';
 
 //	document.getElementById('import_area').focus();
 }
