@@ -8,7 +8,7 @@ html, body {
   height: 100%;
   min-height: 100%;
 }
-button,table,input {
+button,table,input,textarea {
 	font-size: 24px;
 	border-radius: 10px;
 }
@@ -180,7 +180,7 @@ function esporta() {
 
         var backup_div=document.createElement('div');
         backup_div.className='inserzione';
-        var ins='<table width=100%><tr><td nowrap colspan=2 align=center><textarea id=export_area cols=80 rows=25></textarea></td></tr><tr><td colspan=2 align=center>Copia il testo sovrastante (CTRL+A poi CTRL+C) per reimportarlo su un altro dispositivo, poi premi il bottone \'FATTO\'</td></tr></table>';
+        var ins='<table width=100%><tr><td nowrap colspan=2 align=center><textarea id=export_area cols=80 rows=25></textarea></td></tr><tr><td colspan=2 align=center>Copia il testo sovrastante (CTRL+A poi CTRL+C)<br>per reimportarlo su un altro dispositivo, <br>poi premi il bottone \'FATTO\'</td></tr></table>';
         backup_div.innerHTML=ins;
         document.getElementById('main_id').innerHTML='';
         document.getElementById('main_id').appendChild(backup_div);
@@ -188,13 +188,15 @@ function esporta() {
         document.getElementById('footer_id').innerHTML='<table width=100% cellpadding=15><tr><td align=right><button onclick="abort_ins()">FATTO</button></td></tr></table>';
 
 	document.getElementById('export_area').value=inserzioni_raw;
-	document.getElementById('export_area').focus();
+	//document.getElementById('export_area').focus();
 	
 }
 function importa_backup() {
-	if((inserzioni_arr!=null)||(inserzioni_arr.length>0)) {
-	    if(!confirm('Attenzione: questa operazione cancellera\' le inserzioni esistenti e importera\' le nuove inserzioni. Continuare?')) {
-		return;
+	if(!isMobile()) {
+	    if((inserzioni_arr!=null)||(inserzioni_arr.length>0)) {
+		if(!confirm('Attenzione: questa operazione cancellera\' le inserzioni esistenti e importera\' le nuove inserzioni. Continuare?')) {
+		    return;
+		}
 	    }
 	}
 
@@ -216,14 +218,14 @@ function importa() {
 
         var backup_div=document.createElement('div');
         backup_div.className='inserzione';
-        var ins='<table width=100%><tr><td nowrap colspan=2 align=center><textarea id=import_area cols=80 rows=25></textarea></td></tr><tr><td colspan=2 align=center>Incolla il testo copiato durante una esportazione (CTRL+V) per importare le inserzioni, poi premi il bottone \'IMPORTA\'</td></tr></table>';
+        var ins='<table width=100%><tr><td colspan=2 align=center><textarea id=import_area cols=50 rows=15></textarea></td></tr><tr><td colspan=2 align=center>Incolla il testo copiato durante una esportazione (CTRL+V)<br> per importare le inserzioni, <br>poi premi il bottone \'IMPORTA\'</td></tr></table>';
         backup_div.innerHTML=ins;
         document.getElementById('main_id').innerHTML='';
         document.getElementById('main_id').appendChild(backup_div);
         
-        document.getElementById('footer_id').innerHTML='<table width=100% cellpadding=15><tr><td align=right><button onclick="abort_ins()">ANNULLA</button> <button onclick="importa_backup()">IMPORTA</button></td></tr></table>';
+        document.getElementById('footer_id').innerHTML='<table width=100% cellpadding=15><tr><td align=right><button onclick="abort_ins()">xANNULLA</button> <button onclick="importa_backup()">IMPORTA</button></td></tr></table>';
 
-	document.getElementById('import_area').focus();
+//	document.getElementById('import_area').focus();
 }
 function print_ins() {
 	var hmsg='<table width=100%><tr><td width=33% align=left><img src=logo_small.png></td><td  width=33% align=center><h1>TUTTE LE INSERZIONI</h1><div id=ins_cnt></div></td><td  width=33%></td></tr></table><br></center>';
