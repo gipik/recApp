@@ -347,7 +347,7 @@ function w_onload() {
 	}
 	if (typeof(Storage) !== "undefined") {
 		inserzioni_raw=localStorage.getItem('inserzioni');
-		if(inserzioni_raw.trim()=='') {
+		if((inserzioni_raw==null)||(inserzioni_raw.trim()=='')) {
 		    inserzioni_arr=[];
 		}
 		else {
