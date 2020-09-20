@@ -192,7 +192,7 @@ function esporta() {
 	
 }
 function importa_backup() {
-	if(inserzioni_arr.length>0) {
+	if((inserzioni_arr!=null)||(inserzioni_arr.length>0)) {
 	    if(!confirm('Attenzione: questa operazione cancellera\' le inserzioni esistenti e importera\' le nuove inserzioni. Continuare?')) {
 		return;
 	    }
@@ -241,7 +241,7 @@ function print_ins() {
         
         var backup_div=document.createElement('div');
         backup_div.className='inserzione';
-        var ins='<table width=100%><tr><td nowrap colspan=2 align=right><button onclick="esporta()">esporta inserzioni</button> <button onclick="importa()">importa inserzioni</button></td></tr></table>';
+        var ins='<table width=100%><tr><td nowrap colspan=2 align=right><button onclick="esporta()">esporta inserzioni</button></td></tr></table>';
         backup_div.innerHTML=ins;
         document.getElementById('main_id').appendChild(backup_div);
         
