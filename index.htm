@@ -104,7 +104,9 @@ console.log('EDIT['+idx+']');
     ins+='<tr><td nowrap align=right>Caldaia</td><td><input type=text id=lic value="'+getVal(inserzioni_arr[idx].lic)+'"></td></tr>';
     ins+='<tr><td nowrap align=right>Conformita\' impianti</td><td><input type=text id=ci value="'+getVal(inserzioni_arr[idx].ci)+'"></td></tr>';
     ins+='<tr><td nowrap align=right>Classe energetica</td><td><input type=text id=dce value="'+getVal(inserzioni_arr[idx].dce)+'"></td></tr>';
-    ins+='<tr><td nowrap align=right>Planimetria</td><td><input type=text id=pcc value="'+getVal(inserzioni_arr[idx].pcc)+'"></td></tr>';
+    ins+='<tr><td nowrap align=right>Planimetria immobile</td><td><input type=text id=pcc value="'+getVal(inserzioni_arr[idx].pcc)+'"></td></tr>';
+    ins+='<tr><td nowrap align=right>Planimetria tubature</td><td><input type=text id=ptub value="'+getVal(inserzioni_arr[idx].ptub)+'"></td></tr>';
+    ins+='<tr><td nowrap align=right>Planimetria scarichi</td><td><input type=text id=pscar value="'+getVal(inserzioni_arr[idx].pscar)+'"></td></tr>';    
     ins+='<tr><td nowrap align=right>Altri</td><td><input type=text id=daltri value="'+getVal(inserzioni_arr[idx].daltri)+'"></td></tr>';
     ins+='<tr><td colspan=2 nowrap align=right align=center><a href="https://www.reddit.com/r/italy/comments/irubtc/guida_su_cosa_chiedere_e_cosa_guardare_prima_di/" target=_blank>La guida</a></td></tr>';
     ins+='</table><input type=hidden id=edit_id value='+idx+'>';
@@ -175,6 +177,8 @@ function save_ins() {
 	"ci":document.getElementById('ci').value,
 	"dce":document.getElementById('dce').value,
 	"pcc":document.getElementById('pcc').value,
+	"ptub":document.getElementById('ptub').value,
+	"pscar":document.getElementById('pscar').value,
 	"daltri":document.getElementById('daltri').value
     };
     inserzioni_arr.push(ins);
@@ -321,7 +325,9 @@ function add_ins() {
     ins+='<tr><td nowrap align=right>Caldaia</td><td><input type=text id=lic></td></tr>';
     ins+='<tr><td nowrap align=right>Conformita\' impianti</td><td><input type=text id=ci></td></tr>';
     ins+='<tr><td nowrap align=right>Classe energetica</td><td><input type=text id=dce></td></tr>';
-    ins+='<tr><td nowrap align=right>Planimetria</td><td><input type=text id=pcc></td></tr>';
+    ins+='<tr><td nowrap align=right>Planimetria immobile</td><td><input type=text id=pcc></td></tr>';
+    ins+='<tr><td nowrap align=right>Planimetria tubature</td><td><input type=text id=ptub></td></tr>';
+    ins+='<tr><td nowrap align=right>Planimetria scarichi</td><td><input type=text id=pscar></td></tr>';
     ins+='<tr><td nowrap align=right>Altri</td><td><input type=text id=daltri></td></tr>';
     ins+='</table>';
     document.getElementById('main_id').innerHTML=ins;
