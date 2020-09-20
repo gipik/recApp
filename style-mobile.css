@@ -6,7 +6,7 @@ html, body {
   min-height: 100%;
 }
 
-button,table,input,textarea {
+button,table,input {
         font-size: 48px;
         border-radius: 10px;
 }
