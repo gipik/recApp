@@ -99,7 +99,7 @@ console.log('EDIT['+idx+']');
     ins+='<tr><td nowrap align=right>Piano di accumulo?</td><td><input type=text id=pa value="'+getVal(inserzioni_arr[idx].pa)+'"></td></tr>';
     ins+='<tr><td nowrap align=right>Ammortamenti?</td><td><input type=text id=aic value="'+getVal(inserzioni_arr[idx].aic)+'"></td></tr>';
     ins+='<tr><td nowrap align=right>Lavori o Morosita\' ?</td><td><input type=text id=lom value="'+getVal(inserzioni_arr[idx].lom)+'"></td></tr>';
-    ins+='<tr><td nowrap align=right><a href=# onclick="alert(\'Posizione dei pozzetti di ispezione:\\nse biologica o collegato in fogna direttamente\'); return(false);">Posiz.Pozzetti</td><td><input type=text id=ppoz value="'+getVal(inserzioni_arr[idx].ppoz)+'"></td></tr>';
+    ins+='<tr><td nowrap align=right><a href=# onclick="alert(\'Posizione dei pozzetti di ispezione:\\nse biologica o collegato in fogna direttamente\'); return(false);">Posiz.Pozzetti</a></td><td><input type=text id=ppoz value="'+getVal(inserzioni_arr[idx].ppoz)+'"></td></tr>';
     ins+='<tr><td nowrap align=right>Posiz.Messa a Terra</td><td><input type=text id=pmat value="'+getVal(inserzioni_arr[idx].pmat)+'"></td></tr>';    
     ins+='<tr><td nowrap align=center colspan=2><img src=documenti.png style="width:250px;height:250px;"></td></tr>';
     ins+='<tr><td nowrap align=right>Ristrutturazioni</td><td><input type=text id=ldr value="'+getVal(inserzioni_arr[idx].ldr)+'"></td></tr>';
@@ -324,7 +324,7 @@ function add_ins() {
     ins+='<tr><td nowrap align=right>Piano di accumulo?</td><td><input type=text id=pa></td></tr>';
     ins+='<tr><td nowrap align=right>Ammortamenti?</td><td><input type=text id=aic></td></tr>';
     ins+='<tr><td nowrap align=right>Lavori o morosita\'?</td><td><input type=text id=lom></td></tr>';
-    ins+='<tr><td nowrap align=right>Posiz.Pozzetti</td><td><input type=text id=ppoz></td></tr>';
+    ins+='<tr><td nowrap align=right><a href=# onclick="alert(\'Posizione dei pozzetti di ispezione:\\nse biologica o collegato in fogna direttamente\'); return(false);">Posiz.Pozzetti</a></td><td><input type=text id=ppoz></td></tr>';
     ins+='<tr><td nowrap align=right>Posiz.Messa a Terra</td><td><input type=text id=pmat></td></tr>';    
     ins+='<tr><td nowrap align=center colspan=2><img src=documenti.png style="width:250px;height:250px;"></td></tr>';
     ins+='<tr><td nowrap align=right>Ristrutturazioni</td><td><input type=text id=ldr></td></tr>';
