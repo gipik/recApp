@@ -381,19 +381,32 @@ function add_ins() {
     ins+='<tr><td nowrap align=right>Bagni:</td><td><input type=text id=bagni value=1></td></tr>';
     ins+='<tr><td nowrap align=right>Agenzia:</td><td><input type=text id=ag></td></tr>';
     ins+='<tr><td nowrap align=right>Telefono:</td><td><input type=text id=tel></td></tr>';
+    
+    
+    
+    ins+='<tr><td nowrap align=right>Indirizzo annuncio:</td><td><table width=100%>\
+    <tr><td width=1 align=right><input type=radio checked onclick="click_url(this)" name=url id=custom></td><td> <input onclick="url_click(this)" style="width:100%;" type=text id=ia_custom value="https://     "> </td></tr>\
+    <tr><td width=1 align=right> <input type=radio onclick="click_url(this)" name=url id=idealista> </td><td> <input onclick="url_click(this)" style="width:100%;" type=text id=ia_idealista value="https://www.idealista.it/immobile/     "> </td></tr>\
+    <tr><td width=1 align=right> <input type=radio onclick="click_url(this)" name=url id=immobiliare> </td><td> <input onclick="url_click(this)" style="width:100%;" type=text id=ia_immobiliare value="https://www.immobiliare.it/annunci/     "> </td></tr></table> </td></tr>';
+
+
+    
+    /*
     ins+='<tr><td nowrap align=right>Indirizzo annuncio:</td><td><table width=100% border>\
     <tr><td> <input type=radio checked onclick="click_url(this)" name=url id=custom> </td><td> <input style="width:100%;" type=text id=ia_custom value="https://"> </td></tr>\
     <tr><td> <input type=radio onclick="click_url(this)" name=url id=idealista> </td><td> <input style="width:100%;" type=text disabled id=ia_idealista value=https://www.idealista.it/immobile/> </td></tr>\
     <tr><td> <input type=radio onclick="click_url(this)" name=url id=immobiliare> </td><td> <input style="width:100%;" type=text disabled id=ia_immobiliare value=https://www.immobiliare.it/annunci/> </td></tr></table> </td></tr>';
+    */
+    
     ins+='<tr><td nowrap align=right>Note:</td><td><input type=text id=note></td></tr>';
-    ins+='<tr><td nowrap align=center colspan=2><img src=controlla.png style="width:250px;height:250px;"></td></tr>';
+    ins+='<tr><td nowrap align=center colspan=2><br><h2>CONTROLLA</h2></td></tr>';
     ins+='<tr><td nowrap align=right>Pavimenti e muri</td><td><input type=text id=pem></td></tr>';
     ins+='<tr><td nowrap align=right>Porte/infissi/tapparelle</td><td><input type=text id=pit></td></tr>';
     ins+='<tr><td nowrap align=right>Soffitti e balconi</td><td><input type=text id=seb></td></tr>';
     ins+='<tr><td nowrap align=right>Pressione dell\'acqua</td><td><input type=text id=pda></td></tr>';
     ins+='<tr><td nowrap align=right>Quadro elettrico</td><td><input type=text id=qe></td></tr>';
     ins+='<tr><td nowrap align=right>Fuochi e frigorifero</td><td><input type=text id=fef></td></tr>';
-    ins+='<tr><td nowrap align=center colspan=2><img src=domande.png style="width:250px;height:250px;"></td></tr>';
+    ins+='<tr><td nowrap align=center colspan=2><br><h2>DOMANDA</h2></td></tr>';
     ins+='<tr><td nowrap align=right>Perche\' vendete?</td><td><input type=text id=pv></td></tr>';
     ins+='<tr><td nowrap align=right>Importo bollette</td><td><input type=text id=ib></td></tr>';
     ins+='<tr><td nowrap align=right>Piano di accumulo?</td><td><input type=text id=pa></td></tr>';
@@ -401,7 +414,7 @@ function add_ins() {
     ins+='<tr><td nowrap align=right>Lavori o morosita\'?</td><td><input type=text id=lom></td></tr>';
     ins+='<tr><td nowrap align=right><a href=# onclick="alert(\'Posizione dei pozzetti di ispezione:\\nse biologica o collegato in fogna direttamente\'); return(false);">Posiz.Pozzetti</a></td><td><input type=text id=ppoz></td></tr>';
     ins+='<tr><td nowrap align=right>Posiz.Messa a Terra</td><td><input type=text id=pmat></td></tr>';    
-    ins+='<tr><td nowrap align=center colspan=2><img src=documenti.png style="width:250px;height:250px;"></td></tr>';
+    ins+='<tr><td nowrap align=center colspan=2><br><h2>DOCUMENTI</h2></td></tr>';
     ins+='<tr><td nowrap align=right>Ristrutturazioni</td><td><input type=text id=ldr></td></tr>';
     ins+='<tr><td nowrap align=right>Caldaia</td><td><input type=text id=lic></td></tr>';
     ins+='<tr><td nowrap align=right>Conformita\' impianti</td><td><input type=text id=ci></td></tr>';
