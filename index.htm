@@ -127,7 +127,7 @@ function edit_ins(idx) {
     <tr><td width=1 align=right> <input type=radio '+checked_idealista+' onclick="click_url(this)" name=url id=idealista> </td><td> <input onclick="url_click(this)" style="width:100%;" type=text '+disabled_idealista+' id=ia_idealista value="'+url_idealista+'     "> </td></tr>\
     <tr><td width=1 align=right> <input type=radio '+checked_immobiliare+' onclick="click_url(this)" name=url id=immobiliare> </td><td> <input onclick="url_click(this)" style="width:100%;" type=text '+disabled_immobiliare+' id=ia_immobiliare value="'+url_immobiliare+'     "> </td></tr></table> </td></tr>';
     if(curval.startsWith('http') && (curval != 'https://')  ) {
-	ins+='<tr><td nowrap align=right align=center>Vai all\' annuncio salvato:</td><td><a href=# onclick="return go(\''+curval+'\')">'+curval+'</a></td></tr>';
+	ins+='<tr><td nowrap align=right align=center>Vai all\' annuncio:</td><td><a href=# onclick="return go(\''+curval+'\')">'+curval+'</a></td></tr>';
     }
     ins+='<tr><td nowrap align=right>Note:</td><td><input type=text id=note value="'+getVal(inserzioni_arr[idx].note)+'"></td></tr>';
     ins+='<tr><td nowrap align=center colspan=2><br><h2>CONTROLLA</h2></td></tr>';
