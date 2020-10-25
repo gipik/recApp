@@ -123,9 +123,9 @@ function edit_ins(idx) {
     var disabled_idealista='';
     var disabled_immobiliare='';
     ins+='<tr><td nowrap align=right>Indirizzo annuncio:</td><td><table width=100%>\
-    <tr><td width=1 align=right><input type=radio '+checked_custom+' onclick="click_url(this)" name=url id=custom></td><td> <input onclick="url_click(this)" style="width:100%;" type=text '+disabled_custom+' id=ia_custom value="'+url_custom+'     "> </td></tr>\
-    <tr><td width=1 align=right> <input type=radio '+checked_idealista+' onclick="click_url(this)" name=url id=idealista> </td><td> <input onclick="url_click(this)" style="width:100%;" type=text '+disabled_idealista+' id=ia_idealista value="'+url_idealista+'     "> </td></tr>\
-    <tr><td width=1 align=right> <input type=radio '+checked_immobiliare+' onclick="click_url(this)" name=url id=immobiliare> </td><td> <input onclick="url_click(this)" style="width:100%;" type=text '+disabled_immobiliare+' id=ia_immobiliare value="'+url_immobiliare+'     "> </td></tr></table> </td></tr>';
+    <tr><td width=1 align=right><input type=radio '+checked_custom+' name=url id=custom></td><td> <input onclick="url_click(this)" style="width:100%;" type=text '+disabled_custom+' id=ia_custom value="'+url_custom+'     "> </td></tr>\
+    <tr><td width=1 align=right> <input type=radio '+checked_idealista+' name=url id=idealista> </td><td> <input onclick="url_click(this)" style="width:100%;" type=text '+disabled_idealista+' id=ia_idealista value="'+url_idealista+'     "> </td></tr>\
+    <tr><td width=1 align=right> <input type=radio '+checked_immobiliare+' name=url id=immobiliare> </td><td> <input onclick="url_click(this)" style="width:100%;" type=text '+disabled_immobiliare+' id=ia_immobiliare value="'+url_immobiliare+'     "> </td></tr></table> </td></tr>';
     if(curval.startsWith('http') && (curval != 'https://')  ) {
 	ins+='<tr><td nowrap align=right align=center>Vai all\' annuncio:</td><td><a href=# onclick="return go(\''+curval+'\')">'+curval+'</a></td></tr>';
     }
@@ -333,27 +333,6 @@ function print_ins() {
     }
     document.getElementById('ins_cnt').innerHTML=hmsg;
 }
-function click_url(o) {
-/*
-  if(o.id=='custom') {
-      document.getElementById('ia_custom').disabled=false;
-      document.getElementById('ia_idealista').disabled=true;
-      document.getElementById('ia_immobiliare').disabled=true;
-  }
-  else
-  if(o.id=='idealista') {
-      document.getElementById('ia_custom').disabled=true;
-      document.getElementById('ia_idealista').disabled=false;
-      document.getElementById('ia_immobiliare').disabled=true;  
-  }
-  else
-  if(o.id=='immobiliare') {
-      document.getElementById('ia_custom').disabled=true;
-      document.getElementById('ia_idealista').disabled=true;
-      document.getElementById('ia_immobiliare').disabled=false;  
-  }  
-  */
-}
 function add_ins() {
     var hmsg='<center><h1>AGGIUNGI INSERZIONE</h1></center>';
     document.getElementById('header_id').innerHTML=hmsg;
@@ -381,23 +360,10 @@ function add_ins() {
     ins+='<tr><td nowrap align=right>Bagni:</td><td><input type=text id=bagni value=1></td></tr>';
     ins+='<tr><td nowrap align=right>Agenzia:</td><td><input type=text id=ag></td></tr>';
     ins+='<tr><td nowrap align=right>Telefono:</td><td><input type=text id=tel></td></tr>';
-    
-    
-    
     ins+='<tr><td nowrap align=right>Indirizzo annuncio:</td><td><table width=100%>\
-    <tr><td width=1 align=right><input type=radio checked onclick="click_url(this)" name=url id=custom></td><td> <input onclick="url_click(this)" style="width:100%;" type=text id=ia_custom value="https://     "> </td></tr>\
-    <tr><td width=1 align=right> <input type=radio onclick="click_url(this)" name=url id=idealista> </td><td> <input onclick="url_click(this)" style="width:100%;" type=text id=ia_idealista value="https://www.idealista.it/immobile/     "> </td></tr>\
-    <tr><td width=1 align=right> <input type=radio onclick="click_url(this)" name=url id=immobiliare> </td><td> <input onclick="url_click(this)" style="width:100%;" type=text id=ia_immobiliare value="https://www.immobiliare.it/annunci/     "> </td></tr></table> </td></tr>';
-
-
-    
-    /*
-    ins+='<tr><td nowrap align=right>Indirizzo annuncio:</td><td><table width=100% border>\
-    <tr><td> <input type=radio checked onclick="click_url(this)" name=url id=custom> </td><td> <input style="width:100%;" type=text id=ia_custom value="https://"> </td></tr>\
-    <tr><td> <input type=radio onclick="click_url(this)" name=url id=idealista> </td><td> <input style="width:100%;" type=text disabled id=ia_idealista value=https://www.idealista.it/immobile/> </td></tr>\
-    <tr><td> <input type=radio onclick="click_url(this)" name=url id=immobiliare> </td><td> <input style="width:100%;" type=text disabled id=ia_immobiliare value=https://www.immobiliare.it/annunci/> </td></tr></table> </td></tr>';
-    */
-    
+    <tr><td width=1 align=right><input type=radio checked name=url id=custom></td><td> <input onclick="url_click(this)" style="width:100%;" type=text id=ia_custom value="https://     "> </td></tr>\
+    <tr><td width=1 align=right> <input type=radio name=url id=idealista> </td><td> <input onclick="url_click(this)" style="width:100%;" type=text id=ia_idealista value="https://www.idealista.it/immobile/     "> </td></tr>\
+    <tr><td width=1 align=right> <input type=radio name=url id=immobiliare> </td><td> <input onclick="url_click(this)" style="width:100%;" type=text id=ia_immobiliare value="https://www.immobiliare.it/annunci/     "> </td></tr></table> </td></tr>';
     ins+='<tr><td nowrap align=right>Note:</td><td><input type=text id=note></td></tr>';
     ins+='<tr><td nowrap align=center colspan=2><br><h2>CONTROLLA</h2></td></tr>';
     ins+='<tr><td nowrap align=right>Pavimenti e muri</td><td><input type=text id=pem></td></tr>';
