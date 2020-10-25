@@ -8,7 +8,7 @@ html, body {
     height: 100%;
     min-height: 100%;
 }
-button,table,input,a {
+button,table,input,a,radio {
     font-size: 24px;
     border-radius: 10px;
 }
@@ -116,9 +116,9 @@ function edit_ins(idx) {
 	checked_custom='checked';
     }
     ins+='<tr><td nowrap align=right>Indirizzo annuncio:</td><td><table width=100%>\
-    <tr><td width=1 align=right><input type=radio '+checked_custom+' onclick="click_url(this)" name=url id=custom></td><td> <input style="width:100%;" type=text '+disabled_custom+' id=ia_custom value="'+url_custom+'"> </td></tr>\
-    <tr><td width=1 align=right> <input type=radio '+checked_idealista+' onclick="click_url(this)" name=url id=idealista> </td><td> <input style="width:100%;" type=text '+disabled_idealista+' id=ia_idealista value="'+url_idealista+'"> </td></tr>\
-    <tr><td width=1 align=right> <input type=radio '+checked_immobiliare+' onclick="click_url(this)" name=url id=immobiliare> </td><td> <input style="width:100%;" type=text '+disabled_immobiliare+' id=ia_immobiliare value="'+url_immobiliare+'"> </td></tr></table> </td></tr>';
+    <tr><td width=1 align=right><input type=radio '+checked_custom+' onclick="click_url(this)" name=url id=custom></td><td> <input style="width:100%;" type=text '+disabled_custom+' id=ia_custom value="'+url_custom+'     "> </td></tr>\
+    <tr><td width=1 align=right> <input type=radio '+checked_idealista+' onclick="click_url(this)" name=url id=idealista> </td><td> <input style="width:100%;" type=text '+disabled_idealista+' id=ia_idealista value="'+url_idealista+'     "> </td></tr>\
+    <tr><td width=1 align=right> <input type=radio '+checked_immobiliare+' onclick="click_url(this)" name=url id=immobiliare> </td><td> <input style="width:100%;" type=text '+disabled_immobiliare+' id=ia_immobiliare value="'+url_immobiliare+'     "> </td></tr></table> </td></tr>';
     if(curval.startsWith('http')) {
 	ins+='<tr><td nowrap align=right align=center>Vai all\' annuncio salvato:</td><td><a href=# onclick="return go(\''+curval+'\')">'+curval+'</a></td></tr>';
     }
@@ -185,7 +185,8 @@ function save_ins() {
     else
     if(document.getElementById('immobiliare').checked) {
 	ia=document.getElementById('ia_immobiliare').value;
-    }   
+    }
+    
     var ins={
 	"title":document.getElementById('street').value,
 	"locali":document.getElementById('rooms').value,
@@ -210,7 +211,7 @@ function save_ins() {
 	"sc":document.getElementById('sc').value,
 	"ag":document.getElementById('ag').value,
 	"tel":document.getElementById('tel').value,
-	"ia":ia,
+	"ia":ia.trim(),
 	"note":document.getElementById('note').value,
 	"pem":document.getElementById('pem').value,
 	"pit":document.getElementById('pit').value,
