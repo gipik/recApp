@@ -33,6 +33,7 @@ main {
     background-color: lightgray;
     border-radius: 25px;
 }
+input[disabled] {pointer-events:none}
 </style>
 <script>
 var inserzioni_arr;
@@ -43,7 +44,19 @@ function go(url) {
     window.open(url+'?'+tag);
     return(false);
 }
-
+function url_click(o) {
+    if(o.id=='ia_custom') {
+	document.getElementById('custom').checked=true;
+    }
+    else
+    if(o.id=='ia_idealista') {
+	document.getElementById('idealista').checked=true;
+    }
+    else
+    if(o.id=='ia_immobiliare') {
+	document.getElementById('immobiliare').checked=true;
+    }
+}
 function edit_ins(idx) {
     function getVal(str) {
 	if ((str == 'undefined')||(typeof(str)=='undefined')) {
@@ -89,37 +102,31 @@ function edit_ins(idx) {
     var url_custom='https://';
     var url_idealista='https://www.idealista.it/immobile/';
     var url_immobiliare='https://www.immobiliare.it/annunci/';
-    var disabled_custom='';
-    var disabled_idealista='';
-    var disabled_immobiliare='';
     var checked_custom='';
     var checked_idealista='';
     var checked_immobiliare='';
     var curval=getVal(inserzioni_arr[idx].ia);
     if(curval.indexOf('idealista.it') !== -1) {
-	disabled_custom='disabled';
-	disabled_immobiliare='disabled';
 	url_idealista=curval;
 	checked_idealista='checked';
     }
     else
     if(curval.indexOf('immobiliare.it') !== -1) {
-	disabled_custom='disabled';
-	disabled_idealista='disabled';    
 	url_immobiliare=curval;
 	checked_immobiliare='checked';
     }
     else {
-	disabled_immobiliare='disabled';
-	disabled_idealista='disabled';    
 	url_custom=curval;
 	checked_custom='checked';
     }
+    var disabled_custom='';
+    var disabled_idealista='';
+    var disabled_immobiliare='';
     ins+='<tr><td nowrap align=right>Indirizzo annuncio:</td><td><table width=100%>\
-    <tr><td width=1 align=right><input type=radio '+checked_custom+' onclick="click_url(this)" name=url id=custom></td><td> <input style="width:100%;" type=text '+disabled_custom+' id=ia_custom value="'+url_custom+'     "> </td></tr>\
-    <tr><td width=1 align=right> <input type=radio '+checked_idealista+' onclick="click_url(this)" name=url id=idealista> </td><td> <input style="width:100%;" type=text '+disabled_idealista+' id=ia_idealista value="'+url_idealista+'     "> </td></tr>\
-    <tr><td width=1 align=right> <input type=radio '+checked_immobiliare+' onclick="click_url(this)" name=url id=immobiliare> </td><td> <input style="width:100%;" type=text '+disabled_immobiliare+' id=ia_immobiliare value="'+url_immobiliare+'     "> </td></tr></table> </td></tr>';
-    if(curval.startsWith('http')) {
+    <tr><td width=1 align=right><input type=radio '+checked_custom+' onclick="click_url(this)" name=url id=custom></td><td> <input onclick="url_click(this)" style="width:100%;" type=text '+disabled_custom+' id=ia_custom value="'+url_custom+'     "> </td></tr>\
+    <tr><td width=1 align=right> <input type=radio '+checked_idealista+' onclick="click_url(this)" name=url id=idealista> </td><td> <input onclick="url_click(this)" style="width:100%;" type=text '+disabled_idealista+' id=ia_idealista value="'+url_idealista+'     "> </td></tr>\
+    <tr><td width=1 align=right> <input type=radio '+checked_immobiliare+' onclick="click_url(this)" name=url id=immobiliare> </td><td> <input onclick="url_click(this)" style="width:100%;" type=text '+disabled_immobiliare+' id=ia_immobiliare value="'+url_immobiliare+'     "> </td></tr></table> </td></tr>';
+    if(curval.startsWith('http') && (curval != 'https://')  ) {
 	ins+='<tr><td nowrap align=right align=center>Vai all\' annuncio salvato:</td><td><a href=# onclick="return go(\''+curval+'\')">'+curval+'</a></td></tr>';
     }
     ins+='<tr><td nowrap align=right>Note:</td><td><input type=text id=note value="'+getVal(inserzioni_arr[idx].note)+'"></td></tr>';
@@ -327,6 +334,7 @@ function print_ins() {
     document.getElementById('ins_cnt').innerHTML=hmsg;
 }
 function click_url(o) {
+/*
   if(o.id=='custom') {
       document.getElementById('ia_custom').disabled=false;
       document.getElementById('ia_idealista').disabled=true;
@@ -344,6 +352,7 @@ function click_url(o) {
       document.getElementById('ia_idealista').disabled=true;
       document.getElementById('ia_immobiliare').disabled=false;  
   }  
+  */
 }
 function add_ins() {
     var hmsg='<center><h1>AGGIUNGI INSERZIONE</h1></center>';
