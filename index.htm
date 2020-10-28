@@ -296,7 +296,7 @@ function print_ins() {
     document.getElementById('header_id').innerHTML=hmsg;
     var msg='';
     for(var i in inserzioni_arr) {
-	msg='<div class="inserzione" onclick="edit_ins('+i+')">';
+	msg+='<div class="inserzione" onclick="edit_ins('+i+')">';
 	msg+='<b>'+inserzioni_arr[i].title+'</b><br>';
 	msg+='<b>&euro;</b>:'+(inserzioni_arr[i].prezzo.length?inserzioni_arr[i].prezzo:'?')+' ';
 	msg+='<b>MQ</b>:'+(inserzioni_arr[i].mq.length?inserzioni_arr[i].mq:'?')+' ';
