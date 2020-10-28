@@ -2,7 +2,9 @@
 recApp: per annotare cosa chiedere e cosa guardare prima di finalizzare l'acquisto di una casa.
 
 
-recApp e' scritto in HTML5, e puo' quindi essere usata sia da smartphone che da computer: clicca qui per cominciare: https://gipik.github.io/recApp/
+recApp e' scritto in HTML5, e puo' quindi essere usata sia da smartphone che da computer: 
+
+clicca qui per cominciare: https://gipik.github.io/recApp/
 
 L'app usa il Web Storage del browser per salvare le informazioni, che saranno quindi disponibili fino a che non si cancellano i dati delle app.
 
