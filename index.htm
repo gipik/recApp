@@ -37,6 +37,7 @@ input[disabled] {pointer-events:none}
 </style>
 <script>
 var inserzioni_arr;
+var mob=isMobile();
 var recApp_version='Versione 3<br>25/10/2020';
 var version_url='https://gipik.github.io/recApp/current_version.txt';
 var tag='recApp_by_gipik';
@@ -261,7 +262,7 @@ function esporta() {
     //document.getElementById('export_area').select();
 }
 function importa_backup() {
-    if(!isMobile()) {
+    if(!mob) {
 	if((inserzioni_arr!=null)||(inserzioni_arr.length>0)) {
 	    if(!confirm('Attenzione: questa operazione cancellera\' le inserzioni esistenti e importera\' le nuove inserzioni. Continuare?')) {
 		return;
@@ -293,15 +294,74 @@ function importa() {
 function print_ins() {
     var hmsg='<table cellpadding=15 width=100%><tr><td width=33% align=left><a target=_blank href=https://gipik.github.io/recApp><img align=left width=150 height=150 src=logo_small.png></a></td><td  width=33% align=center><h1>TUTTE LE INSERZIONI</h1><div id=ins_cnt></div></td><td align=right width=33%>&nbsp;</td></tr></table><br></center>';
     document.getElementById('header_id').innerHTML=hmsg;
+    var msg='';
+    for(var i in inserzioni_arr) {
+	msg='<div class="inserzione" onclick="edit_ins('+i+')">';
+	msg+='<b>'+inserzioni_arr[i].title+'</b><br>';
+	msg+='<b>&euro;</b>:'+(inserzioni_arr[i].prezzo.length?inserzioni_arr[i].prezzo:'?')+' ';
+	msg+='<b>MQ</b>:'+(inserzioni_arr[i].mq.length?inserzioni_arr[i].mq:'?')+' ';
+	msg+='<b>Loc</b>:'+(inserzioni_arr[i].locali.length?inserzioni_arr[i].locali:'?')+' ';
+	msg+='<b>Piano</b>:'+(inserzioni_arr[i].piano.length?inserzioni_arr[i].piano:'?')+' ';
+	if(inserzioni_arr[i].ascensore) {
+	    msg+='<b>Asc</b>:si ';
+	}
+	else {
+	    msg+='<b>A</b>:no ';
+	}
+	if(inserzioni_arr[i].posto_auto) {
+	    msg+='<b>Auto</b>:si ';
+	}
+	else {
+	    msg+='<b>Auto</b>:no ';
+	}
+	if(mob) {
+	    msg+='<br>';
+	}
+	if(inserzioni_arr[i].posto_moto) {
+	    msg+='<b>Moto</b>:si ';
+	}
+	else {
+	    msg+='<b>Moto</b>:no ';
+	}
+	if(inserzioni_arr[i].cantina) {
+	    msg+='<b>Cant</b>:si ';
+	}
+	else {
+	    msg+='<b>Cant</b>:no ';
+	}
+	if(inserzioni_arr[i].solaio) {
+	    msg+='<b>Sol</b>:si ';
+	}
+	else {
+	    msg+='<b>Sol</b>:no ';
+	}
+	if(inserzioni_arr[i].terrazzo) {
+	    msg+='<b>Terr</b>:si ';
+	}
+	else {
+	    msg+='<b>Terr</b>:no ';
+	}
+	if(inserzioni_arr[i].balcone) {
+	    msg+='<b>Balc</b>:si ';
+	}
+	else {
+	    msg+='<b>Balc</b>:no ';
+	}
+	msg+='</div>';
+	
+    }
+    document.getElementById('main_id').innerHTML=msg;
+    /*
     document.getElementById('main_id').innerHTML='';
     for(var i in inserzioni_arr) {
 	var newdiv=document.createElement('div');
-	var ins='<table width=100%><tr><td nowrap><li><b>'+inserzioni_arr[i].title+'</b>';
+	var ins='<table border width=100%  onclick="edit_ins('+i+')"><tr><td nowrap><li><b>'+inserzioni_arr[i].title+'</b>';
 	ins+='</td><td align=right nowrap><button onclick="edit_ins('+i+')">VEDI/MODIFICA</button></td></tr></table>';
 	newdiv.innerHTML=ins;
 	newdiv.className='inserzione';
 	document.getElementById('main_id').appendChild(newdiv);
     }
+    */
     var backup_div=document.createElement('div');
     backup_div.className='inserzione';
     backup_div.style.backgroundColor='darkgray';
@@ -321,7 +381,7 @@ function print_ins() {
     else {
 	hmsg='Nessuna inserzione salvata';
 	fsize=48;
-	if(isMobile()) {
+	if(mob) {
 	    fsize=32;
 	}
 
@@ -420,7 +480,7 @@ function get_current_version() {
     request.send();
 }
 function w_onload() {
-    if(isMobile()) {
+    if(mob) {
 	var head  = document.getElementsByTagName('head')[0];
 	var link  = document.createElement('link');
 	link.rel  = 'stylesheet';
