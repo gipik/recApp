@@ -284,9 +284,7 @@ function importa_backup() {
 	try {
 	    inserzioni_arr=JSON.parse(inserzioni_raw);
 	} catch (e) {
-	    alert('ERRORE restorando il backup: i dati non sono validi.');
-	    inserzioni_raw='';
-	    inserzioni_arr=[];
+	    alert('ERRORE restorando il backup: i dati non sono validi.\nVerifica di aver copiato tutti i caratteri in fase di backup.');
 	}	
     }
     print_ins();
@@ -474,8 +472,8 @@ function get_current_version() {
     request.onreadystatechange = function() {
         if(this.readyState === 4 && this.status === 200) {
             current_version=this.responseText;
-            console.log('Last recApp version: ' + current_version);
-            console.log('You are using recApp version: ' + recApp_version);
+            console.log('Last recApp version: ' + current_version.replace('<br>',' '));
+            console.log('You are using recApp version: ' + recApp_version.replace('<br>',' '));
             if(recApp_version != current_version) {
 		if(document.location.href.indexOf('ts=') === -1) {
 		    console.log('Loading last version.');
