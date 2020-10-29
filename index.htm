@@ -191,22 +191,22 @@ function save_ins() {
     }
     var ia='';
     if(document.getElementById('custom').checked) {
-	ia=document.getElementById('ia_custom').value;
+	ia=document.getElementById('ia_custom').value.replace(/\"/g,'');
     }
     else
     if(document.getElementById('idealista').checked) {
-	ia=document.getElementById('ia_idealista').value;
+	ia=document.getElementById('ia_idealista').value.replace(/\"/g,'');
     }
     else
     if(document.getElementById('immobiliare').checked) {
-	ia=document.getElementById('ia_immobiliare').value;
+	ia=document.getElementById('ia_immobiliare').value.replace(/\"/g,'');
     }
     
     var ins={
-	"title":document.getElementById('street').value,
-	"locali":document.getElementById('rooms').value,
-	"piano":document.getElementById('floor').value,
-	"prezzo":document.getElementById('prezzo').value,
+	"title":document.getElementById('street').value.replace(/\"/g,''),
+	"locali":document.getElementById('rooms').value.replace(/\"/g,''),
+	"piano":document.getElementById('floor').value.replace(/\"/g,''),
+	"prezzo":document.getElementById('prezzo').value.replace(/\"/g,''),
 	"ultimo":document.getElementById('ultimo').checked,
 	"ascensore":document.getElementById('ascensore').checked,
 	"posto_auto":document.getElementById('posto_auto').checked,
@@ -216,39 +216,39 @@ function save_ins() {
 	"cantina":document.getElementById('cantina').checked,
 	"solaio":document.getElementById('solaio').checked,
 	"ristrutturare":document.getElementById('ristrutturare').checked,
-	"anno":document.getElementById('anno').value,
-	"ce":document.getElementById('ce').value,
-	"stato_interno":document.getElementById('stato_interno').value,
-	"stato_esterno":document.getElementById('stato_esterno').value,
-	"bagni":document.getElementById('bagni').value,
-	"mq":document.getElementById('mq').value,
-	"emq":document.getElementById('emq').value,
-	"sc":document.getElementById('sc').value,
-	"ag":document.getElementById('ag').value,
-	"tel":document.getElementById('tel').value,
+	"anno":document.getElementById('anno').value.replace(/\"/g,''),
+	"ce":document.getElementById('ce').value.replace(/\"/g,''),
+	"stato_interno":document.getElementById('stato_interno').value.replace(/\"/g,''),
+	"stato_esterno":document.getElementById('stato_esterno').value.replace(/\"/g,''),
+	"bagni":document.getElementById('bagni').value.replace(/\"/g,''),
+	"mq":document.getElementById('mq').value.replace(/\"/g,''),
+	"emq":document.getElementById('emq').value.replace(/\"/g,''),
+	"sc":document.getElementById('sc').value.replace(/\"/g,''),
+	"ag":document.getElementById('ag').value.replace(/\"/g,''),
+	"tel":document.getElementById('tel').value.replace(/\"/g,''),
 	"ia":ia.trim(),
-	"note":document.getElementById('note').value,
-	"pem":document.getElementById('pem').value,
-	"pit":document.getElementById('pit').value,
-	"seb":document.getElementById('seb').value,
-	"pda":document.getElementById('pda').value,
-	"qe":document.getElementById('qe').value,
-	"fef":document.getElementById('fef').value,
-	"pv":document.getElementById('pv').value,
-	"ib":document.getElementById('ib').value,
-	"pa":document.getElementById('pa').value,
-	"aic":document.getElementById('aic').value,
-	"lom":document.getElementById('lom').value,
-	"ldr":document.getElementById('ldr').value,
-	"lic":document.getElementById('lic').value,
-	"ci":document.getElementById('ci').value,
-	"dce":document.getElementById('dce').value,
-	"pcc":document.getElementById('pcc').value,
-	"ptub":document.getElementById('ptub').value,
-	"pscar":document.getElementById('pscar').value,
-	"ppoz":document.getElementById('ppoz').value,
-	"pmat":document.getElementById('pmat').value,
-	"daltri":document.getElementById('daltri').value
+	"note":document.getElementById('note').value.replace(/\"/g,''),
+	"pem":document.getElementById('pem').value.replace(/\"/g,''),
+	"pit":document.getElementById('pit').value.replace(/\"/g,''),
+	"seb":document.getElementById('seb').value.replace(/\"/g,''),
+	"pda":document.getElementById('pda').value.replace(/\"/g,''),
+	"qe":document.getElementById('qe').value.replace(/\"/g,''),
+	"fef":document.getElementById('fef').value.replace(/\"/g,''),
+	"pv":document.getElementById('pv').value.replace(/\"/g,''),
+	"ib":document.getElementById('ib').value.replace(/\"/g,''),
+	"pa":document.getElementById('pa').value.replace(/\"/g,''),
+	"aic":document.getElementById('aic').value.replace(/\"/g,''),
+	"lom":document.getElementById('lom').value.replace(/\"/g,''),
+	"ldr":document.getElementById('ldr').value.replace(/\"/g,''),
+	"lic":document.getElementById('lic').value.replace(/\"/g,''),
+	"ci":document.getElementById('ci').value.replace(/\"/g,''),
+	"dce":document.getElementById('dce').value.replace(/\"/g,''),
+	"pcc":document.getElementById('pcc').value.replace(/\"/g,''),
+	"ptub":document.getElementById('ptub').value.replace(/\"/g,''),
+	"pscar":document.getElementById('pscar').value.replace(/\"/g,''),
+	"ppoz":document.getElementById('ppoz').value.replace(/\"/g,''),
+	"pmat":document.getElementById('pmat').value.replace(/\"/g,''),
+	"daltri":document.getElementById('daltri').value.replace(/\"/g,'')
     };
     inserzioni_arr.push(ins);
     print_ins();
