@@ -69,6 +69,13 @@ function edit_ins(idx) {
     document.getElementById('header_id').innerHTML=hmsg;
     document.getElementById('main_id').innerHTML='';
     var ins='<br><center><table cellpadding=10><tr><td nowrap align=right><b>Indirizzo:</b></td><td><input type=text id=street value="'+getVal(inserzioni_arr[idx].title)+'"></td></tr>';
+    
+    var curval=getVal(inserzioni_arr[idx].ia);
+    if(curval.startsWith('http') && (curval != 'https://')  ) {
+	ins+='<tr><td nowrap align=right align=center>Vai all\' annuncio:</td><td><a href=# onclick="return go(\''+curval+'\')">'+curval+'</a></td></tr>';
+    }
+    
+    
     ins+='<tr><td nowrap align=right>Locali:</td><td><input type=text id=rooms value="'+getVal(inserzioni_arr[idx].locali)+'"></td></tr>';
     ins+='<tr><td nowrap align=right>Piano:</td><td><input type=text id=floor value="'+getVal(inserzioni_arr[idx].piano)+'"></td></tr>';
     ins+='<tr><td nowrap align=right>Metri quadri:</td><td><input type=text id=mq value="'+getVal(inserzioni_arr[idx].mq)+'"></td></tr>';
@@ -106,7 +113,7 @@ function edit_ins(idx) {
     var checked_custom='';
     var checked_idealista='';
     var checked_immobiliare='';
-    var curval=getVal(inserzioni_arr[idx].ia);
+    
     if(curval.indexOf('idealista.it') !== -1) {
 	url_idealista=curval;
 	checked_idealista='checked';
@@ -344,13 +351,10 @@ function print_ins() {
 	else {
 	    msg+='<b>Balc</b>:no ';
 	}
-	
 	if( Number.isInteger(parseInt(inserzioni_arr[i].prezzo)) && Number.isInteger(parseInt(inserzioni_arr[i].mq)) ) {
 	    msg+='<b>&euro;/mq</b>:' + (parseInt(inserzioni_arr[i].prezzo) / parseInt(inserzioni_arr[i].mq)).toFixed(2);
 	}
-	
 	msg+='</div>';
-	
     }
     document.getElementById('main_id').innerHTML=msg;
     /*
