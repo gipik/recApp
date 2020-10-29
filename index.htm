@@ -278,6 +278,7 @@ function importa_backup() {
     }
     inserzioni_raw=atob(document.getElementById('import_area').value);
     if(inserzioni_raw.trim()=='') {
+	inserzioni_raw='';
 	inserzioni_arr=[];
     }
     else {
@@ -285,6 +286,8 @@ function importa_backup() {
 	    inserzioni_arr=JSON.parse(inserzioni_raw);
 	} catch (e) {
 	    alert('ERRORE restorando il backup: i dati non sono validi.\nVerifica di aver copiato tutti i caratteri in fase di backup.');
+	    inserzioni_raw='';
+	    inserzioni_arr=[];	    
 	}	
     }
     print_ins();
@@ -510,7 +513,14 @@ function w_onload() {
 	    inserzioni_arr=[];
 	}
 	else {
-	    inserzioni_arr=JSON.parse(inserzioni_raw);
+	    //inserzioni_arr=JSON.parse(inserzioni_raw);
+	    try {
+		inserzioni_arr=JSON.parse(inserzioni_raw);
+	    } catch (e) {
+		alert('ERRORE restorando il backup: i dati non sono validi.\nVerifica di aver copiato tutti i caratteri in fase di backup.');
+		inserzioni_raw='';
+		inserzioni_arr=[];
+	    }	
 	}
 	print_ins();
 	get_current_version();
