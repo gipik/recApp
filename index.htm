@@ -266,7 +266,7 @@ function esporta() {
     document.getElementById('main_id').appendChild(backup_div);
     document.getElementById('footer_id').innerHTML='<table width=100% cellpadding=15><tr><td align=right><button onclick="abort_ins()">FATTO</button></td></tr></table>';
     document.getElementById('export_area').value=btoa(inserzioni_raw);
-    //document.getElementById('export_area').select();
+    document.getElementById('export_area').select();
 }
 function importa_backup() {
     if(!mob) {
