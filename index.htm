@@ -38,7 +38,7 @@ input[disabled] {pointer-events:none}
 <script>
 var inserzioni_arr;
 var mob=isMobile();
-var recApp_version='Versione 3<br>25/10/2020';
+var recApp_version='Versione 6<br>29/10/2020';
 var version_url='https://gipik.github.io/recApp/current_version.txt';
 var tag='recApp_by_gipik';
 function go(url) {
@@ -281,7 +281,13 @@ function importa_backup() {
 	inserzioni_arr=[];
     }
     else {
-	inserzioni_arr=JSON.parse(inserzioni_raw);
+	try {
+	    inserzioni_arr=JSON.parse(inserzioni_raw);
+	} catch (e) {
+	    alert('ERRORE restorando il backup: i dati non sono validi.');
+	    inserzioni_raw='';
+	    inserzioni_arr=[];
+	}	
     }
     print_ins();
     localStorage.setItem('inserzioni', inserzioni_raw);
@@ -468,8 +474,11 @@ function get_current_version() {
     request.onreadystatechange = function() {
         if(this.readyState === 4 && this.status === 200) {
             current_version=this.responseText;
+            console.log('Last recApp version: ' + current_version);
+            console.log('You are using recApp version: ' + recApp_version);
             if(recApp_version != current_version) {
 		if(document.location.href.indexOf('ts=') === -1) {
+		    console.log('Loading last version.');
 		    document.location.href=document.location.href+'?ts='+Date.now();
 		}
 		else {
@@ -477,6 +486,7 @@ function get_current_version() {
 		    var cur_ts=Date.now();
 		    var diff=(cur_ts-last_ts) / 1000;
 		    if(diff > 60) {
+			console.log('Loading last version.');
 			document.location.href=document.location.href.split('?ts=')[0]+'?ts='+Date.now();
 		    }
 		}
