@@ -38,7 +38,7 @@ input[disabled] {pointer-events:none}
 <script>
 var inserzioni_arr;
 var mob=isMobile();
-var recApp_version='Versione 8<br>01/11/2020';
+var recApp_version='Versione 8<br>20/11/2020';
 var version_url='https://gipik.github.io/recApp/current_version.txt';
 var tag='recApp_by_gipik';
 function go(url) {
@@ -358,8 +358,10 @@ function print_ins() {
 	else {
 	    msg+='<b>Balc</b>:no ';
 	}
-	if( Number.isInteger(parseInt(inserzioni_arr[i].prezzo)) && Number.isInteger(parseInt(inserzioni_arr[i].mq)) ) {
-	    msg+='<b>&euro;/mq</b>:' + (parseInt(inserzioni_arr[i].prezzo) / parseInt(inserzioni_arr[i].mq)).toFixed(2);
+	if( (inserzioni_arr[i].prezzo !== '') && (inserzioni_arr[i].mq !== '')) {
+	    if( Number.isInteger(parseInt(inserzioni_arr[i].prezzo)) && Number.isInteger(parseInt(inserzioni_arr[i].mq)) ) {
+		msg+='<b>&euro;/mq</b>:' + (parseInt(inserzioni_arr[i].prezzo) / parseInt(inserzioni_arr[i].mq)).toFixed(2);
+	    }
 	}
 	msg+='</div>';
     }
@@ -399,7 +401,7 @@ function print_ins() {
 	}
 
 	fsize=8;
-	var gmsg='<table cellpadding=20 width=100% height=100%><tr><td><font size=6>Benvenuto in recApp,<br>la app per annotare cosa chiedere e cosa guardare prima di finalizzare l\'acquisto di una casa.<br><br>Non hai ancora salvato nessuna inserzione: premi \'AGGIUNGI INSERZIONE\' per aggiungerne una.<br><br><font size=5>L\'app usa il Web Storage del browser per salvare le informazioni, che saranno quindi disponibili fino a che non si cancellano i dati delle app.<br>\
+	var gmsg='<table cellpadding=20 width=100% height=100%><tr><td><font size=6>Benvenuto in recApp,<br>la app per annotare cosa chiedere e cosa guardare prima di finalizzare l\'acquisto di una casa.<br><br>Non hai ancora salvato nessuna inserzione: premi \'AGGIUNGI INSERZIONE\' per aggiungerne una.<br><br><font size=5>L\'app usa il Web Storage del browser per salvare le informazioni, che saranno quindi disponibili fino a che non si cancellano i dati delle app.<br><br><font size=5><b>Riferimenti:</b><br>\
 <br></font>\
 </td><td align=right valign=bottom><img onclick="add_ins()" src=giu.gif></td></tr></table>';
 	document.getElementById('main_id').innerHTML=gmsg;
